@@ -4,8 +4,7 @@ import { Layout } from './Layout/Layout';
 
 import { AppWrapper } from './App.styled';
 import { App1 } from './App1';
-// import { Search } from './Search/Search';
-// import { NewsList } from './NewsList/NewsList';
+
 // import { useState, useEffect } from 'react';
 
 // import {
