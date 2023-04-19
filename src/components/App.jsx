@@ -1,83 +1,83 @@
-import React, { useState } from 'react';
-import { Loader } from './Loader/Loader';
-import { SearchBar } from './Search/Search';
-import { NewsItemList } from './NewsList/NewsList';
-import { AppWrapper, TextReportG, TextReportB, Button } from './App.styled';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import { RecipeList } from './RecipeList/RecipeList';
+import InitialRecipes from '../recipes.json';
+import { Toaster } from 'react-hot-toast';
+
+import { Layout } from './Layout/Layout';
+import { Counter } from './Counter/Counter';
+import { LoginForm } from './Form/LoginForm';
+import { SignUpForm } from './Form/RegistrationForm';
+import { RecipeForm } from './RecipeForm/RecipeForm';
+import { Clock } from './Clock/Clock';
+import { AppWrapper } from './App.styled';
+// import { Search } from './Search/Search';
+// import { NewsList } from './NewsList/NewsList';
+import { useState, useEffect } from 'react';
+import { Player } from './Player/Player';
+// import {
+//   Routes, // instead of "Switch"
+//   Route,
+// } from 'react-router-dom';
+// import { BreedSelect } from './BreedSelect/BreedSelect';
+
+const getInitialRecipes = () => {
+  const savedRecipes = localStorage.getItem('recipes');
+  if (savedRecipes !== null) {
+    const parsedRecipes = JSON.parse(savedRecipes);
+    return parsedRecipes;
+  }
+  return InitialRecipes;
+};
 
 export const App = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [newsItems, setNewsItems] = useState([]);
-  const [displayedItems, setDisplayedItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isInvalidSearch, setIsInvalidSearch] = useState(false);
+  const [recipes, setRecipes] = useState(getInitialRecipes());
+  // const [textSearch, setTextSearch] = useState('');
 
-  async function getNews(term) {
-    if (!term.trim()) {
-      setIsInvalidSearch(true);
-      setIsLoading(false);
-      return;
-    }
-    setIsInvalidSearch(false);
-    setIsLoading(true);
-    const encodedTerm = encodeURIComponent(term);
-    const URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${encodedTerm}&api-key=8N1AbWqRpnQWeV5VdRc9LcAyq1NAOG3p`;
-    try {
-      const response = await axios.get(URL);
-      const data = response.data;
-      setIsLoading(false);
-      const sortedNewsItems = data.response.docs.sort((a, b) =>
-        b.pub_date.localeCompare(a.pub_date)
-      );
-      setNewsItems(sortedNewsItems);
-      setDisplayedItems(sortedNewsItems.slice(0, 4));
-      return;
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  useEffect(() => {
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+  }, [recipes]);
 
-  function handleSearch(e) {
-    e.preventDefault();
+  // const handleSubmit = searchText => {
+  //   setTextSearch(prevState => [...prevState, searchText]);
+  // };
 
-    if (!/^[a-zA-Z\u00C0-\u024F]+$/.test(searchTerm)) {
-      toast.warn('Please enter a valid word.');
-      return setSearchTerm('');
-    }
-    getNews(searchTerm);
-    setSearchTerm('');
-  }
+  // const handleSubmit = searchText => {
+  //   setTextSearch(searchText);
+  // };
 
-  function handleLoadMore() {
-    const currentlyDisplayed = displayedItems.length;
-    const nextIndex = currentlyDisplayed + 4;
-    setDisplayedItems([
-      ...displayedItems,
-      ...newsItems.slice(currentlyDisplayed, nextIndex),
-    ]);
-  }
+  const deleteRecipe = id => {
+    setRecipes(prevState => prevState.filter(recipe => recipe.id !== id));
+  };
+
+  const addRecipe = newRecipe => {
+    setRecipes(prevState => [...prevState, newRecipe]);
+  };
 
   return (
-    <AppWrapper>
-      {!isInvalidSearch && newsItems.length === 0 && (
-        <TextReportB>Please enter a valid English word.</TextReportB>
-      )}
-      <SearchBar
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        handleSearch={handleSearch}
+    <Layout>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 1500,
+        }}
       />
+      {/* <Search onSearch={handleSubmit} /> */}
+      {/* <NewsList searchText={textSearch} /> */}
+      <RecipeList items={recipes} onDelete={deleteRecipe} />
+      <RecipeForm onSubmit={addRecipe} />
+      <AppWrapper>
+        <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4" />
+      </AppWrapper>
 
-      {newsItems.length > 0 && (
-        <TextReportG>Total articles found: {newsItems.length}</TextReportG>
-      )}
+      <AppWrapper>
+        <Counter />
+        <Clock />
+      </AppWrapper>
 
-      <NewsItemList newsItems={displayedItems} />
-      {isLoading && <Loader />}
-      {displayedItems.length < newsItems.length && (
-        <Button onClick={handleLoadMore}>Load More</Button>
-      )}
-    </AppWrapper>
+      <LoginForm />
+      <SignUpForm />
+      {/* <Routes>
+        <Route exact path="/signup" element={<BreedSelect />} />
+      </Routes> */}
+    </Layout>
   );
 };
