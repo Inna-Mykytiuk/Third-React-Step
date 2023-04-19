@@ -40,10 +40,7 @@ export const App = () => {
 
   function handleSearch(e) {
     e.preventDefault();
-    // if (!/^[a-zA-Z]+$/.test(searchTerm)) {
-    //   toast.warn('Please enter a valid English word.');
-    //   return;
-    // }
+
     if (!/^[a-zA-Z\u00C0-\u024F]+$/.test(searchTerm)) {
       toast.warn('Please enter a valid word.');
       return setSearchTerm('');
