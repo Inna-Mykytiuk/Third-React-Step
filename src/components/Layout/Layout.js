@@ -1,7 +1,7 @@
 import {
   Container,
   HeaderTitle,
-  FooterTitle,
+  // FooterTitle,
   MainContainer,
 } from './Layout.styled';
 
@@ -20,13 +20,13 @@ export const Layout = ({ children }) => {
         <Container>{children}</Container>
       </main>
 
-      <footer>
+      {/* <footer>
         <section>
           <Container>
             <FooterTitle>Footer</FooterTitle>
           </Container>
         </section>
-      </footer>
+      </footer> */}
     </MainContainer>
   );
 };
