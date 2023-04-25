@@ -16,6 +16,7 @@ import DogDetails from './Pages/DogDetails';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import About from './Pages/About';
 import Text1 from './AboutText/Text1';
+import Text2 from './AboutText/Text2';
 
 export const App = () => {
   return (
@@ -24,7 +25,7 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route exact path="about" element={<About />}>
           <Route path="text1" element={<Text1 />} />
-          <Route path="text2" element={<div>text2</div>} />
+          <Route path="text2" element={<Text2 />} />
         </Route>
         <Route exact path="dogs" element={<Dogs />} />
         <Route exact path="dogs/:dogId" element={<DogDetails />}>
