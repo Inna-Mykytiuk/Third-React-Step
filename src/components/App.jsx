@@ -12,6 +12,9 @@ import {
   NavLink,
 } from 'react-router-dom';
 // import { BreedSelect } from './BreedSelect/BreedSelect';
+import Home from './Pages/Home';
+import Dogs from './Pages/Dogs';
+import DogDetails from './Pages/DogDetails';
 
 export const App = () => {
   return (
@@ -26,9 +29,9 @@ export const App = () => {
           </li>
         </ul>
         <Routes>
-          <Route exact path="/" element={<div>Home page</div>} />
-          <Route exact path="/dogs" element={<div>Dogs</div>} />
-          <Route exact path="/dogs/:dogId" element={<div>Dog</div>} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/dogs" element={<Dogs />} />
+          <Route exact path="/dogs/:dogId" element={<DogDetails />} />
         </Routes>
       </AppWrapper>
     </Layout>
