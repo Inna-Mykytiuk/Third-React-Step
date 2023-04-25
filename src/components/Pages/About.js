@@ -1,4 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
+import { Button } from '../App.styled';
+import { BsArrowLeftShort } from 'react-icons/bs';
 
 const About = () => {
   // const { text } = useParams();
@@ -21,6 +23,20 @@ const About = () => {
         voluptatum.
       </p>
       <ul>
+        <li>
+          <Link to="/">
+            <Button type="button">
+              <BsArrowLeftShort
+                style={{
+                  width: '25px',
+                  height: '25px',
+                  display: 'inline-block',
+                }}
+              />
+              Go back
+            </Button>
+          </Link>
+        </li>
         <li>
           <Link to="text1">Fist one</Link>
         </li>
