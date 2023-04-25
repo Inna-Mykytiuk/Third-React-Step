@@ -63,4 +63,13 @@ img {
     object-fit: cover;
     object-position: center center;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
 `;
