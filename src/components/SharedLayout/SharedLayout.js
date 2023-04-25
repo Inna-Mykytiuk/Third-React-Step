@@ -1,29 +1,30 @@
-import { Container, HeaderTitle } from 'components/Layout/Layout.styled';
-import { Outlet } from 'react-router-dom';
-import { Nav, NavLink, NavList } from '../Nav/Nav.styled';
-import { Header } from '../App.styled';
+import { Container } from 'components/Layout/Layout.styled';
+import { Outlet, Link } from 'react-router-dom';
 
 export const SharedLayout = () => {
   return (
     <Container>
-      <Header>
-        <Container>
-          <HeaderTitle>React tasks</HeaderTitle>
-        </Container>
-        <Nav>
-          <NavList>
+      <header>
+        <div>
+          <span role="img" aria-label="computer icon">
+            💻
+          </span>{' '}
+          GoMerch Store
+        </div>
+        <nav>
+          <ul>
             <li>
-              <NavLink to="/">Home page</NavLink>
+              <Link to="/">Home page</Link>
             </li>
             <li>
-              <NavLink to="/dogs">Colection</NavLink>
+              <Link to="/dogs">Colection</Link>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <Link to="/about">About</Link>
             </li>
-          </NavList>
-        </Nav>
-      </Header>
+          </ul>
+        </nav>
+      </header>
       <main>
         <Outlet />
       </main>
