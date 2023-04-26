@@ -8,7 +8,6 @@ export const SharedLayout = () => {
     <Container>
       <Header>
         <HeaderTitle>React tasks</HeaderTitle>
-
         <Nav>
           <NavList>
             <li>
@@ -16,6 +15,9 @@ export const SharedLayout = () => {
             </li>
             <li>
               <NavLink to="/dogs">Colection</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about">About</NavLink>
             </li>
           </NavList>
         </Nav>
