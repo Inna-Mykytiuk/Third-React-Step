@@ -23,7 +23,6 @@ export const SharedLayout = () => {
         </Nav>
       </Header>
       <main>
-        {/*Обов'язковий парамметр за допомогою якого рендериться все, що є за посиланнями */}
         <Outlet />
       </main>
     </Container>
