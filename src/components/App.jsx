@@ -21,6 +21,7 @@ export const App = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
         <Route exact path="about" element={<About />}>
+          <Route path="home" element={<Home />} />
           <Route path="text1" element={<Text1 />} />
           <Route path="text2" element={<div>text2</div>} />
         </Route>
