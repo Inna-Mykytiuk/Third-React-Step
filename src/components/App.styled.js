@@ -59,7 +59,3 @@ export const Button = styled.button`
     scale: 0.95;
   }
 `;
-
-export const Header = styled.header`
-  border-bottom: 2px solid #fff;
-`;
