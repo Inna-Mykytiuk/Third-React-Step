@@ -1,6 +1,6 @@
 import { Container, HeaderTitle } from 'components/Layout/Layout.styled';
 import { Outlet } from 'react-router-dom';
-import { Nav, NavLink, NavList } from '../Nav/Nav.styled';
+import { Nav, NavLink, NavList } from '../Navigation/Navigation.styled';
 import { Header } from '../App.styled';
 
 export const SharedLayout = () => {
@@ -8,6 +8,7 @@ export const SharedLayout = () => {
     <Container>
       <Header>
         <HeaderTitle>React tasks</HeaderTitle>
+
         <Nav>
           <NavList>
             <li>
@@ -15,9 +16,6 @@ export const SharedLayout = () => {
             </li>
             <li>
               <NavLink to="/dogs">Colection</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">About</NavLink>
             </li>
           </NavList>
         </Nav>
