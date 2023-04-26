@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
-// import { Button } from '../App.styled';
-// import { BsArrowLeftShort } from 'react-icons/bs';
+import { Button } from '../App.styled';
+import { BsArrowLeftShort } from 'react-icons/bs';
 
 const About = () => {
   // const { text } = useParams();
@@ -23,7 +23,7 @@ const About = () => {
         voluptatum.
       </p>
       <ul>
-        {/* <li>
+        <li>
           <Link to="/">
             <Button type="button">
               <BsArrowLeftShort
@@ -36,7 +36,7 @@ const About = () => {
               Go back
             </Button>
           </Link>
-        </li> */}
+        </li>
         <li>
           <Link to="text1">Fist one</Link>
         </li>
