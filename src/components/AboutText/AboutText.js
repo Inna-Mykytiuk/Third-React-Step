@@ -11,12 +11,9 @@ const AboutText = () => {
     <>
       <h1>Text Details</h1>
       <ul>
-        {/* <li>
+        <li>
           <Link to="text1">Fist one</Link>
-        </li> */}
-        {/* <li>
-          <Link to="home">HOME HOME</Link>
-        </li> */}
+        </li>
         <li>
           <Link to="text2">Second one</Link>
         </li>
