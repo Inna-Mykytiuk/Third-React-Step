@@ -1,13 +1,13 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useParams, Outlet } from 'react-router-dom';
 
 const About = () => {
-  // const { text } = useParams();
+  const { text } = useParams();
   // useEffect(() => {
   // HTTP запрос, если нужно
   // }, [])
   return (
     <div>
-      <p>About section</p>
+      <p>{text}</p>
       <p>
         lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
         voluptatum.
