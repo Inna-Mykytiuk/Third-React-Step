@@ -59,3 +59,12 @@ export const Button = styled.button`
     scale: 0.95;
   }
 `;
+
+export const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+
+  border-bottom: 2px solid #fff;
+`;
