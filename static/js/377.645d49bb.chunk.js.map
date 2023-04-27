@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/377.645d49bb.chunk.js","mappings":"0JAOA,UAPkB,WAChB,OACE,0BACE,uCAGL,C","sources":["components/SubBreeds/SubBreeds.jsx"],"sourcesContent":["const SubBreeds = () => {\n  return (\n    <div>\n      <h1>SubBreeds</h1>\n    </div>\n  );\n};\nexport default SubBreeds;\n"],"names":[],"sourceRoot":""}
