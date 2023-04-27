@@ -35,7 +35,6 @@ export const NavLink = styled(Link)`
   &.active,
   &:hover,
   &:focus {
-    color: #ccc;
-    /* text-shadow: 0 0 15px #eb9486; */
+    color: #5b93b1;
   }
 `;

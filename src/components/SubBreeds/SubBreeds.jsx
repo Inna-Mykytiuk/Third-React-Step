@@ -1,7 +1,9 @@
+import { Title } from 'components/App.styled';
+
 const SubBreeds = () => {
   return (
     <div>
-      <h1>SubBreeds</h1>
+      <Title>SubBreeds</Title>
     </div>
   );
 };

@@ -1,5 +1,13 @@
-import { Link, NavLink, useSearchParams, useLocation } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import {
+  Input,
+  Wrapper,
+  ButtonLink,
+  LinkList,
+  LinkItem,
+  StyledLink,
+} from 'components/Dog/Dogs.styled';
 
 const Dogs = () => {
   const [dogs, setDogs] = useState([
@@ -9,7 +17,7 @@ const Dogs = () => {
     'dog-4',
     'dog-5',
   ]);
-  console.log(setDogs);
+  // console.log(setDogs);
 
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,33 +34,33 @@ const Dogs = () => {
   };
 
   return (
-    <div>
-      <NavLink exact="true" to="..">
+    <Wrapper>
+      <ButtonLink exact="true" to="..">
         {' '}
         {/* додано властивість exact */}
         Home
-      </NavLink>
-      <input
+      </ButtonLink>
+      <Input
         type="text"
         placeholder="search"
         value={dogId}
         onChange={updateQueryString}
       />
 
-      <ul>
+      <LinkList>
         {visibleDogs.map(dog => {
           return (
-            <li key={dog}>
-              <Link to={`${dog}`} state={{ from: location }}>
+            <LinkItem key={dog}>
+              <StyledLink to={`${dog}`} state={{ from: location }}>
                 {' '}
                 {/* додано атрибут state */}
                 {dog}
-              </Link>
-            </li>
+              </StyledLink>
+            </LinkItem>
           );
         })}
-      </ul>
-    </div>
+      </LinkList>
+    </Wrapper>
   );
 };
 

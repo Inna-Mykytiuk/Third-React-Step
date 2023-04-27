@@ -1,4 +1,5 @@
 // import { Link } from 'react-router-dom';
+import { Title } from 'components/App.styled';
 
 const About = () => {
   // useEffect(() => {
@@ -6,8 +7,8 @@ const About = () => {
   // }, [])
 
   return (
-    <div>
-      <h1>About</h1>
+    <div style={{ marginTop: 30 }}>
+      <Title>About</Title>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam</p>
     </div>
   );

@@ -1,5 +1,13 @@
-import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { useRef } from 'react';
+import { Title } from 'components/App.styled';
+import {
+  ButtonLink,
+  Wrapper,
+  LinkList,
+  LinkItem,
+  StyledLink,
+} from 'components/Dog/Dogs.styled';
 
 const DogDetails = () => {
   const { dogId } = useParams();
@@ -10,20 +18,20 @@ const DogDetails = () => {
   // console.log(backlinkLocationRef);
 
   return (
-    <>
-      <Link to={backlinkLocationRef.current}>Go back</Link>{' '}
+    <Wrapper>
+      <ButtonLink to={backlinkLocationRef.current}>Go back</ButtonLink>{' '}
       {/* виправлено помилку з дочірнім елементом */}
-      <h1>DogDetails: {dogId}</h1>
-      <ul>
-        <li>
-          <Link to="subbreeds">Subbreeds</Link>
-        </li>
-        <li>
-          <Link to="gallery">Gallery</Link>
-        </li>
-      </ul>
+      <Title>Dog Details for: {dogId}</Title>
+      <LinkList>
+        <LinkItem>
+          <StyledLink to="subbreeds">Subbreeds</StyledLink>
+        </LinkItem>
+        <LinkItem>
+          <StyledLink to="gallery">Gallery</StyledLink>
+        </LinkItem>
+      </LinkList>
       <Outlet />
-    </>
+    </Wrapper>
   );
 };
 

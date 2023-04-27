@@ -1,7 +1,9 @@
+import { Title } from 'components/App.styled';
+
 const Gallery = () => {
   return (
     <div>
-      <h1>Gallery</h1>
+      <Title>Gallery</Title>
     </div>
   );
 };
