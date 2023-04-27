@@ -17,7 +17,7 @@ const Dogs = () => {
     'dog-4',
     'dog-5',
   ]);
-  // console.log(setDogs);
+  console.log(setDogs);
 
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
